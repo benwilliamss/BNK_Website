@@ -1,3 +1,4 @@
+using BNK.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -21,10 +22,14 @@ namespace BNK
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services) //Add new services here 
         {
             services.AddRazorPages();
-        }
+            //add singleton(One type of service object) or transient(Comes or goes)
+            // DB service will be transient. 
+            //Need to add using .namespace to get our service from. 
+            services.AddTransient<DbQueriesService>();
+        }   
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
