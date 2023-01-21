@@ -28,7 +28,8 @@ namespace BNK
             //add singleton(One type of service object) or transient(Comes or goes)
             // DB service will be transient. 
             //Need to add using .namespace to get our service from. 
-            services.AddTransient<DbQueriesService>();
+            //services.AddTransient<DbQueriesService>();
+
         }   
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
